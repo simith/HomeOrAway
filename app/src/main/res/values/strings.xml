@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Home or Away</string>
+    <string name="main_activity_name">Scan Wi-Fi networks</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_start_wifi_scan">Select your Home WiFi network</string>
+    <string name="title_activity_list_wifi_networks">ListWifiNetworksActivity</string>
+    <string name="title_activity_home_or_away">Home Or Away?</string>
+</resources>
