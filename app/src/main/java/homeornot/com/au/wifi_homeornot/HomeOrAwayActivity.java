@@ -106,7 +106,10 @@ public class HomeOrAwayActivity extends AppCompatActivity {
 
     private void unRegisterHomeOrAwayListener() {
 
-        unregisterReceiver(this.mBroadcastReceiver);
+        if(this.mBroadcastReceiver != null) {
+            unregisterReceiver(this.mBroadcastReceiver);
+            this.mBroadcastReceiver = null;
+        }
     }
 
 
