@@ -161,7 +161,10 @@ public class StartWifiScanActivity extends AppCompatActivity {
 
     private void unRegisterScanResultsBroadcastReceiver(){
 
-        unregisterReceiver(this.mBroadcastReceiver);
+        if(this.mBroadcastReceiver != null) {
+            unregisterReceiver(this.mBroadcastReceiver);
+            this.mBroadcastReceiver = null;
+        }
     }
 
     // call this method only if you are on 6.0 and up, otherwise call doGetWifi()
