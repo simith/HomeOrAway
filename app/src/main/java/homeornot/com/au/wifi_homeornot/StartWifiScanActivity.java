@@ -177,7 +177,7 @@ public class StartWifiScanActivity extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.M)
     private void getWifi() {
         if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 0x12345);
+            requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 0x12345);
         } else {
             scanForWifiNetworks(); // the actual wifi scanning
         }
