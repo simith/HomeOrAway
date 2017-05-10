@@ -79,7 +79,13 @@ public class StartWifiScanActivity extends AppCompatActivity {
 
         wifi = (WifiManager) this
                 .getSystemService(Context.WIFI_SERVICE);
-        getWifi();
+        if(Integer.valueOf(android.os.Build.VERSION.SDK) >= 23) {
+            getWifi();
+        }
+        else
+        {
+            scanForWifiNetworks();
+        }
 
     }
 

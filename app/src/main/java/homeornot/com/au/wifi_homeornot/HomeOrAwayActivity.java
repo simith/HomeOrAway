@@ -79,27 +79,27 @@ public class HomeOrAwayActivity extends AppCompatActivity {
 
     private void registerHomeOrAwayListener() {
 
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(BroadcastMessage.BROADCAST_HOME_WIFI_DISCONNECTED);
-        intentFilter.addAction(BroadcastMessage.BROADCAST_HOME_WIFI_CONNECTED);
+        if(this.mBroadcastReceiver == null) {
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(BroadcastMessage.BROADCAST_HOME_WIFI_DISCONNECTED);
+            intentFilter.addAction(BroadcastMessage.BROADCAST_HOME_WIFI_CONNECTED);
 
-        this.mBroadcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
+            this.mBroadcastReceiver = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
 
-                if(intent.getAction().equals(BroadcastMessage.BROADCAST_HOME_WIFI_DISCONNECTED) ) {
+                    if (intent.getAction().equals(BroadcastMessage.BROADCAST_HOME_WIFI_DISCONNECTED)) {
 
-                    setAwayMode();
+                        setAwayMode();
+                    } else {
+                        setHomeMode();
+                    }
+
                 }
-                else
-                {
-                    setHomeMode();
-                }
+            };
 
-            }
-        };
-
-        registerReceiver(this.mBroadcastReceiver, intentFilter);
+            registerReceiver(this.mBroadcastReceiver, intentFilter);
+        }
 
 
     }
